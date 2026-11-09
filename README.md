@@ -1,6 +1,6 @@
 # yuqizhang.me — Personal site
 
-[![Update publications](https://github.com/qiqi-xingyi/qiqi-xingyi.github.io/actions/workflows/update-publications.yml/badge.svg)](https://github.com/qiqi-xingyi/qiqi-xingyi.github.io/actions/workflows/update-publications.yml)
+[![Update publications](https://github.com/yuqi-zhang-427/yuqi-zhang-427.github.io/actions/workflows/update-publications.yml/badge.svg)](https://github.com/yuqi-zhang-427/yuqi-zhang-427.github.io/actions/workflows/update-publications.yml)
 
 Static GitHub Pages site. The **Publications** section auto-syncs from Google Scholar.
 
