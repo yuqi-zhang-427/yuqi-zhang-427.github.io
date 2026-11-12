@@ -8,10 +8,6 @@
     return typeof url === 'string' && /^(https?:|mailto:)/i.test(url);
   }
 
-  function safeImage(path) {
-    return typeof path === 'string' && /^assets\/img\/papers\/[A-Za-z0-9_.-]+$/.test(path);
-  }
-
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
@@ -52,75 +48,50 @@
     return authors;
   }
 
-  function renderFrontispiece(feature) {
-    if (!feature || !safeImage(feature.image) || !safeUrl(feature.url)) return null;
-    var caption = el('div', 'pub-feature');
-    var heading = el('p', 'pub-feature-label');
-    heading.appendChild(link('Featured as a Frontispiece', feature.url));
-    caption.appendChild(heading);
-    if (feature.title) caption.appendChild(el('p', 'pub-feature-title', feature.title));
-    if (feature.issue) caption.appendChild(el('p', null, feature.issue));
-    if (feature.published) caption.appendChild(el('p', null, feature.published));
-    var credit = el('p', 'pub-feature-credit', feature.credit ? 'Image: ' + feature.credit : '');
-    if (feature.license && safeUrl(feature.license_url)) {
-      if (credit.textContent) credit.appendChild(document.createTextNode(' · '));
-      credit.appendChild(link(feature.license, feature.license_url));
-    }
-    if (credit.childNodes.length) caption.appendChild(credit);
-    return caption;
+  /* Short venue and year for the first label, e.g. "PNAS 2026"; badges
+     that already carry a year, like "SC '26", are used as they are. */
+  function venueLabel(entry, item) {
+    var badge = entry.venue_badge || item.venue || '';
+    if (!badge || /'\d{2}\b/.test(badge) || !entry.year) return badge;
+    return badge + ' ' + entry.year;
   }
 
-  /* One entry per paper: a small figure on the left; on the right a short
-     venue tag, then title, authors, the full venue name, and links. */
+  /* A paper featured on a journal cover gets a label pointing to the
+     cover, which is shown on its own beside News (#cover). */
+  function renderChips(entry, item) {
+    var chips = el('p', 'pub-chips');
+    var label = venueLabel(entry, item);
+    if (label) chips.appendChild(el('span', 'chip', label));
+    if (entry.status) chips.appendChild(el('span', 'chip chip--soft', entry.status));
+    if (entry.frontispiece && document.getElementById('cover')) {
+      var cover = el('a', 'chip chip--soft', 'Frontispiece');
+      cover.href = '#cover';
+      chips.appendChild(cover);
+    }
+    return chips.childNodes.length ? chips : null;
+  }
+
+  /* One text entry per paper: venue labels, title, authors, the full
+     venue name, and link buttons. Papers carry no figures here. */
   function renderPaper(item) {
     var entry = item.entry;
     var target = pickTarget(item.links);
-    var feature = entry.frontispiece;
-    var isCover = feature && entry.image === feature.image && safeImage(feature.image) && safeUrl(feature.url);
-    var paper = el('article', isCover ? 'pub pub--featured' : 'pub');
+    var paper = el('article', 'pub');
     paper.id = 'paper-' + item.id;
 
-    if (safeImage(entry.image)) {
-      var imageTarget = isCover ? feature.url : target;
-      var thumb = el(imageTarget ? 'a' : 'div', isCover ? 'pub-thumb pub-thumb--cover' : 'pub-thumb');
-      if (imageTarget) {
-        thumb.href = imageTarget;
-        thumb.target = '_blank';
-        thumb.rel = 'noopener';
-        if (!isCover) {
-          thumb.tabIndex = -1;
-          thumb.setAttribute('aria-hidden', 'true');
-        }
-      }
-      var img = el('img');
-      img.src = entry.image;
-      img.alt = isCover ? 'Advanced Science Frontispiece: ' + (feature.title || '') : '';
-      img.loading = 'lazy';
-      img.width = isCover ? 1653 : 960;
-      img.height = isCover ? 2173 : 720;
-      thumb.appendChild(img);
-      paper.appendChild(thumb);
-    }
-
-    var body = el('div', 'pub-body');
-    var badge = entry.venue_badge || item.venue;
-    if (badge) body.appendChild(el('span', 'venue-tag', badge));
+    var chips = renderChips(entry, item);
+    if (chips) paper.appendChild(chips);
 
     var title = el('h3', 'pub-title');
     if (target) title.appendChild(link(entry.title || '', target));
     else title.textContent = entry.title || '';
-    body.appendChild(title);
+    paper.appendChild(title);
 
-    if (item.withAuthors) body.appendChild(renderAuthors(entry));
+    if (item.withAuthors) paper.appendChild(renderAuthors(entry));
 
-    var venue = el('p', 'pub-venue');
     var full = entry.venue_full || item.venue;
-    var hasYear = /'\d{2}\b/.test(full);
-    venue.appendChild(el('span', 'venue', full + (hasYear || !entry.year ? '' : ', ' + entry.year)));
-    if (entry.status) venue.appendChild(document.createTextNode(' (' + entry.status + ')'));
-    if (item.isPreprint && !entry.venue_full) venue.appendChild(document.createTextNode(' (preprint)'));
-    body.appendChild(venue);
-
+    if (item.isPreprint && !entry.venue_full) full += ' preprint';
+    if (full) paper.appendChild(el('p', 'pub-venue', full));
 
     var links = el('p', 'pub-links');
     item.links.forEach(function (l) {
@@ -128,12 +99,7 @@
       links.appendChild(link(l.label || 'Link', l.url));
     });
     if (entry.cited_by > 0) links.appendChild(el('span', 'cites', 'Cited by ' + entry.cited_by));
-    if (links.childNodes.length) body.appendChild(links);
-
-    var frontispiece = renderFrontispiece(entry.frontispiece);
-    if (frontispiece) body.appendChild(frontispiece);
-
-    paper.appendChild(body);
+    if (links.childNodes.length) paper.appendChild(links);
     return paper;
   }
 

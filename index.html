@@ -63,9 +63,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
-  <link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=3404">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="assets/style.css?v=4006">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/icon.png" type="image/png" sizes="180x180">
   <link rel="apple-touch-icon" href="assets/img/icon.png">
@@ -76,42 +75,63 @@
     <div class="wrap header-inner">
       <a class="brand" href="#top">Yuqi Zhang</a>
       <nav class="nav" aria-label="Sections">
-        <a href="#about">About</a>
+        <a href="#highlights">Highlights</a>
         <a href="#news">News</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="intro" id="about">
+    <section class="profile" id="about">
       <img class="portrait" src="assets/img/me.jpeg" alt="Yuqi Zhang" width="768" height="1024">
       <div>
         <h1>Yuqi Zhang <span class="name-zh" lang="zh-Hans">张钰奇</span></h1>
-        <p class="thesis">Quantum algorithms and systems for biology, run on real quantum hardware.</p>
-        <p class="role">PhD Student in Quantum Biological Computing, since Fall 2024<br>Kent State University &amp; Cleveland Clinic</p>
+        <p class="role">PhD Student, Quantum Biological Computing</p>
+        <p class="affiliation">Kent State University &amp; Cleveland Clinic, since Fall 2024</p>
+        <p class="bio">I am a <span id="phd-year" data-start="2024">third</span>-year PhD student advised by Dr.&nbsp;Qiang Guan at Kent State University and Dr.&nbsp;Feixiong Cheng at Cleveland Clinic. I design quantum algorithms and systems for structural biology and drug discovery, and run them on IBM utility-scale quantum processors, including the one at Cleveland Clinic.</p>
+        <p class="interests"><b>Research interests:</b> quantum algorithms and systems, protein structure prediction, virtual screening, drug discovery</p>
         <p class="links">
-          <a href="mailto:yzhan135@kent.edu">Email</a>
-          <a href="https://scholar.google.com/citations?user=Q7Ybs-gAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-          <a href="https://github.com/yuqi-zhang-427" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://orcid.org/0009-0005-9026-6906" target="_blank" rel="noopener">ORCID</a>
-          <a href="mailto:yzhan135@kent.edu?subject=CV%20request">CV</a>
+          <a href="mailto:yzhan135@kent.edu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11z"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg>Email</a>
+          <a href="https://scholar.google.com/citations?user=Q7Ybs-gAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 6 8 2.5 14.5 6 8 9.5z"/><path d="M4.5 7.6v3c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8v-3"/></svg>Google Scholar</a>
+          <a href="https://github.com/yuqi-zhang-427" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 4.5 2 8l3.5 3.5M10.5 4.5 14 8l-3.5 3.5"/></svg>GitHub</a>
+          <a href="https://orcid.org/0009-0005-9026-6906" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M6 6v4.5M8.5 6h1a2.2 2.2 0 0 1 0 4.5h-1z"/></svg>ORCID</a>
+          <a href="mailto:yzhan135@kent.edu?subject=CV%20request"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5l2.5 2.5v8.5H4z"/><path d="M6 8h4M6 10.5h4"/></svg>CV</a>
         </p>
       </div>
     </section>
 
-    <div class="intro-grid">
-      <section class="about">
-        <h2>About</h2>
-        <p>I am a <span id="phd-year" data-start="2024">third</span>-year PhD student advised by Dr.&nbsp;Qiang Guan at Kent State University and Dr.&nbsp;Feixiong Cheng at Cleveland Clinic.</p>
-        <p>I design quantum algorithms and systems for structural biology and drug discovery, and run them on IBM utility-scale quantum processors, including the one at Cleveland Clinic.</p>
-      </section>
+    <section id="highlights">
+      <h2>Research Highlights</h2>
+      <ul class="highlights">
+        <li>
+          <a class="hl-figure" href="#paper-p5"><img src="assets/img/overview-protein.webp" alt="KRAS protein structure" width="900" height="752"></a>
+          <p class="pub-chips"><span class="chip">PNAS 2026</span><span class="chip chip--soft">In Press</span></p>
+          <h3 class="hl-title"><a href="#paper-p5">Quantum-guided drug-binding pocket prediction for KRAS</a></h3>
+          <p class="hl-text">Quantum-guided ensemble generation to find drug-binding pockets on KRAS, a long-standing cancer target.</p>
+        </li>
+        <li>
+          <a class="hl-figure" href="#paper-p2"><img src="assets/img/papers/p2.jpg" alt="" width="546" height="409"></a>
+          <p class="pub-chips"><span class="chip">Adv. Sci. 2025</span><a class="chip chip--soft" href="#cover">Frontispiece</a></p>
+          <h3 class="hl-title"><a href="#paper-p2">Binding-site structure prediction on a utility-level quantum processor</a></h3>
+          <p class="hl-text">Binding-site fragments solved as ground-state problems on the IBM quantum computer at Cleveland Clinic, featured on the journal's Frontispiece.</p>
+        </li>
+        <li>
+          <a class="hl-figure" href="#paper-p1"><img src="assets/img/papers/p1.jpg" alt="" width="960" height="720"></a>
+          <p class="pub-chips"><span class="chip">SC '26</span></p>
+          <h3 class="hl-title"><a href="#paper-p1">QSAD: a quantum sampling architecture for protein structure</a></h3>
+          <p class="hl-text">Structure reconstruction recast as Hamiltonian sampling, run entirely on IBM Heron R2 across 101 peptides.</p>
+        </li>
+      </ul>
+    </section>
 
-      <section id="news">
-        <h2>News</h2>
-        <ul class="news">
+    <div class="news-row">
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news">
           <li><span class="date">Nov 2026</span><span><b>Accepted at PNAS.</b> Our <a href="#paper-p5">quantum-guided ensemble generation</a> paper on drug-binding pocket prediction for KRAS was accepted by the Proceedings of the National Academy of Sciences.</span></li>
           <li><span class="date">Feb 2026</span><span><a href="https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/advs.74344" target="_blank" rel="noopener"><b>Frontispiece in Advanced Science.</b></a> Our protein binding-site structure prediction work was featured in Volume 13, Issue 12.</span></li>
           <li><span class="date">Sep 2026</span><span>Our team joined the NSF <a href="https://www.nsf.gov/funding/initiatives/i-corps/updates/nsf-announces-special-opportunity-i-corpstm-quantumx" target="_blank" rel="noopener">I-Corps for Quantum+X</a> 2026 cohort. I am the Entrepreneurial Lead.</span></li>
@@ -127,7 +147,15 @@
             <li><span class="date">2025</span><span><a href="#paper-p3">QDockBank</a> appeared at SC '25.</span></li>
           </ul>
         </details>
-      </section>
+    </section>
+
+    <aside class="cover" id="cover" aria-labelledby="cover-heading">
+      <h2 id="cover-heading">Journal Cover</h2>
+      <a class="cover-image" href="https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/advs.74344" target="_blank" rel="noopener"><img src="assets/img/papers/p2-frontispiece.jpg" alt="Advanced Science Frontispiece: Protein Structure Prediction for Drug Discovery" loading="lazy" width="1653" height="2173"></a>
+      <p class="cover-title"><a href="https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/advs.74344" target="_blank" rel="noopener">Protein Structure Prediction for Drug Discovery</a></p>
+      <p class="cover-meta">Frontispiece, Advanced Science, Volume 13, Issue 12, e74344, 27 February 2026. Featuring our <a href="#paper-p2">binding-site structure prediction</a> paper.</p>
+      <p class="cover-credit">Image: Yuchen Sun, <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+    </aside>
     </div>
 
     <section id="research">
@@ -163,132 +191,84 @@
       <p class="note">First-author papers. * denotes corresponding author. See <a href="https://scholar.google.com/citations?user=Q7Ybs-gAAAAJ" target="_blank" rel="noopener">Google Scholar</a> for the full list.</p>
       <div id="pub-list">
         <article class="pub" id="paper-p5">
-          <div class="pub-body">
-            <span class="venue-tag">PNAS</span>
-            <h3 class="pub-title">Quantum-Guided Ensemble Generation for Accurate Drug-Binding Pocket Prediction: Application to KRAS</h3>
-            <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yunguang Qiu</span>, <span class="author">William Martin</span>, <span class="author">Yuxin Yang</span>, <span class="author">Sixu Chen</span>, <span class="author">Bo Fang</span>, <span class="author">Jieyang Chen</span>, <span class="author">Zixu Wang</span>, <span class="author">Sherry Fang</span>, <span class="author">Siwei Chen</span>, <span class="author">Junhan Zhao</span>, <span class="author">Junzhou Huang</span>, <span class="author">Joseph Loscalzo</span>, <span class="author">Qiang Guan*</span>, <span class="author">Ruth Nussinov*</span>, <span class="author">Feixiong Cheng*</span></p>
-            <p class="pub-venue"><span class="venue">Proceedings of the National Academy of Sciences (PNAS), 2026</span> (In Press)</p>
-          </div>
+          <p class="pub-chips"><span class="chip">PNAS 2026</span><span class="chip chip--soft">In Press</span></p>
+          <h3 class="pub-title">Quantum-Guided Ensemble Generation for Accurate Drug-Binding Pocket Prediction: Application to KRAS</h3>
+          <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yunguang Qiu</span>, <span class="author">William Martin</span>, <span class="author">Yuxin Yang</span>, <span class="author">Sixu Chen</span>, <span class="author">Bo Fang</span>, <span class="author">Jieyang Chen</span>, <span class="author">Zixu Wang</span>, <span class="author">Sherry Fang</span>, <span class="author">Siwei Chen</span>, <span class="author">Junhan Zhao</span>, <span class="author">Junzhou Huang</span>, <span class="author">Joseph Loscalzo</span>, <span class="author">Qiang Guan*</span>, <span class="author">Ruth Nussinov*</span>, <span class="author">Feixiong Cheng*</span></p>
+          <p class="pub-venue">Proceedings of the National Academy of Sciences (PNAS)</p>
         </article>
-        <article class="pub pub--featured" id="paper-p2">
-          <a class="pub-thumb pub-thumb--cover" href="https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/advs.74344" target="_blank" rel="noopener">
-            <img src="assets/img/papers/p2-frontispiece.jpg" alt="Advanced Science Frontispiece: Protein Structure Prediction for Drug Discovery" loading="lazy" width="1653" height="2173">
-          </a>
-          <div class="pub-body">
-            <span class="venue-tag">Adv. Sci.</span>
-            <h3 class="pub-title"><a href="https://doi.org/10.1002/advs.202513641" target="_blank" rel="noopener">A Quantum Framework for Protein Binding-Site Structure Prediction on Utility-Level Quantum Processors</a></h3>
-            <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yuxin Yang</span>, <span class="author">William Martin</span>, <span class="author">Kingsten Lin</span>, <span class="author">Zixu Wang</span>, <span class="author">Cheng-Chang Lu</span>, <span class="author">Weiwen Jiang</span>, <span class="author">Ruth Nussinov</span>, <span class="author">Joseph Loscalzo</span>, <span class="author">Qiang Guan*</span>, <span class="author">Feixiong Cheng*</span></p>
-            <p class="pub-venue"><span class="venue">Advanced Science, 2025</span></p>
-            <p class="pub-links"><a href="https://doi.org/10.1002/advs.202513641" target="_blank" rel="noopener">DOI</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:kNdYIx-mwKoC" target="_blank" rel="noopener">Scholar</a><span class="cites">Cited by 20</span></p>
-            <div class="pub-feature">
-                <p class="pub-feature-label"><a href="https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/advs.74344" target="_blank" rel="noopener">Featured as a Frontispiece</a></p>
-                <p class="pub-feature-title">Protein Structure Prediction for Drug Discovery</p>
-                <p>Advanced Science, Volume 13, Issue 12, e74344</p>
-                <p>27 February 2026</p>
-                <p class="pub-feature-credit">Image: Yuchen Sun · <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
-            </div>
-          </div>
+        <article class="pub" id="paper-p2">
+          <p class="pub-chips"><span class="chip">Adv. Sci. 2025</span><a class="chip chip--soft" href="#cover">Frontispiece</a></p>
+          <h3 class="pub-title"><a href="https://doi.org/10.1002/advs.202513641" target="_blank" rel="noopener">A Quantum Framework for Protein Binding-Site Structure Prediction on Utility-Level Quantum Processors</a></h3>
+          <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yuxin Yang</span>, <span class="author">William Martin</span>, <span class="author">Kingsten Lin</span>, <span class="author">Zixu Wang</span>, <span class="author">Cheng-Chang Lu</span>, <span class="author">Weiwen Jiang</span>, <span class="author">Ruth Nussinov</span>, <span class="author">Joseph Loscalzo</span>, <span class="author">Qiang Guan*</span>, <span class="author">Feixiong Cheng*</span></p>
+          <p class="pub-venue">Advanced Science</p>
+          <p class="pub-links"><a href="https://doi.org/10.1002/advs.202513641" target="_blank" rel="noopener">DOI</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:kNdYIx-mwKoC" target="_blank" rel="noopener">Scholar</a><span class="cites">Cited by 21</span></p>
         </article>
         <article class="pub" id="paper-p1">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2607.06971" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/papers/p1.jpg" alt="" loading="lazy" width="960" height="720">
-          </a>
-          <div class="pub-body">
-            <span class="venue-tag">SC '26</span>
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2607.06971" target="_blank" rel="noopener">Quantum Sampling Architecture for Protein Structure Reconstruction on Utility-Scale Hardware</a></h3>
-            <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Bo Fang</span>, <span class="author">Yuxin Yang</span>, <span class="author">Feixiong Cheng</span>, <span class="author">Jieyang Chen</span>, <span class="author">Sherry Fang</span>, <span class="author">Siwei Chen</span>, <span class="author">Junhan Zhao</span>, <span class="author">Qiang Guan*</span></p>
-            <p class="pub-venue"><span class="venue">The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC), 2026</span></p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2607.06971" target="_blank" rel="noopener">arXiv</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:5nxA0vEk-isC" target="_blank" rel="noopener">Scholar</a></p>
-          </div>
+          <p class="pub-chips"><span class="chip">SC '26</span></p>
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2607.06971" target="_blank" rel="noopener">Quantum Sampling Architecture for Protein Structure Reconstruction on Utility-Scale Hardware</a></h3>
+          <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Bo Fang</span>, <span class="author">Yuxin Yang</span>, <span class="author">Feixiong Cheng</span>, <span class="author">Jieyang Chen</span>, <span class="author">Sherry Fang</span>, <span class="author">Siwei Chen</span>, <span class="author">Junhan Zhao</span>, <span class="author">Qiang Guan*</span></p>
+          <p class="pub-venue">The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC)</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2607.06971" target="_blank" rel="noopener">arXiv</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:5nxA0vEk-isC" target="_blank" rel="noopener">Scholar</a></p>
         </article>
         <article class="pub" id="paper-p3">
-          <a class="pub-thumb" href="https://dl.acm.org/doi/full/10.1145/3712285.3759799" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/papers/p3.jpg" alt="" loading="lazy" width="960" height="720">
-          </a>
-          <div class="pub-body">
-            <span class="venue-tag">SC '25</span>
-            <h3 class="pub-title"><a href="https://dl.acm.org/doi/full/10.1145/3712285.3759799" target="_blank" rel="noopener">QDockBank: A Dataset for Ligand Docking on Protein Fragments Predicted on Utility-Level Quantum Computers</a></h3>
-            <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yuxin Yang</span>, <span class="author">Cheng-Chang Lu</span>, <span class="author">Weiwen Jiang</span>, <span class="author">Feixiong Cheng</span>, <span class="author">Bo Fang</span>, <span class="author">Qiang Guan*</span></p>
-            <p class="pub-venue"><span class="venue">The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC), 2025</span></p>
-            <p class="pub-links"><a href="https://dl.acm.org/doi/full/10.1145/3712285.3759799" target="_blank" rel="noopener">ACM DL</a><a href="https://github.com/yuqi-zhang-427/QDockBank_" target="_blank" rel="noopener">Artifacts</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:Tyk-4Ss8FVUC" target="_blank" rel="noopener">Scholar</a><span class="cites">Cited by 8</span></p>
-          </div>
+          <p class="pub-chips"><span class="chip">SC '25</span></p>
+          <h3 class="pub-title"><a href="https://dl.acm.org/doi/full/10.1145/3712285.3759799" target="_blank" rel="noopener">QDockBank: A Dataset for Ligand Docking on Protein Fragments Predicted on Utility-Level Quantum Computers</a></h3>
+          <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yuxin Yang</span>, <span class="author">Cheng-Chang Lu</span>, <span class="author">Weiwen Jiang</span>, <span class="author">Feixiong Cheng</span>, <span class="author">Bo Fang</span>, <span class="author">Qiang Guan*</span></p>
+          <p class="pub-venue">The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC)</p>
+          <p class="pub-links"><a href="https://dl.acm.org/doi/full/10.1145/3712285.3759799" target="_blank" rel="noopener">ACM DL</a><a href="https://github.com/yuqi-zhang-427/QDockBank_" target="_blank" rel="noopener">Artifacts</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:Tyk-4Ss8FVUC" target="_blank" rel="noopener">Scholar</a><span class="cites">Cited by 8</span></p>
         </article>
         <article class="pub" id="paper-p4">
-          <a class="pub-thumb" href="https://dl.acm.org/doi/abs/10.1145/3848024" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/papers/p4.jpg" alt="" loading="lazy" width="960" height="720">
-          </a>
-          <div class="pub-body">
-            <span class="venue-tag">ACM TQC</span>
-            <h3 class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3848024" target="_blank" rel="noopener">A Hybrid Quantum-AI Framework for Protein Structure Prediction on NISQ Devices</a></h3>
-            <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yuxin Yang</span>, <span class="author">Feixiong Cheng</span>, <span class="author">Cheng-Chang Lu</span>, <span class="author">Nima Saeidi</span>, <span class="author">Junhan Zhao</span>, <span class="author">Siwei Chen</span>, <span class="author">Weiwen Jiang</span>, <span class="author">Qiang Guan*</span></p>
-            <p class="pub-venue"><span class="venue">ACM Transactions on Quantum Computing, 2026</span></p>
-            <p class="pub-links"><a href="https://dl.acm.org/doi/abs/10.1145/3848024" target="_blank" rel="noopener">ACM DL</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:3fE2CSJIrl8C" target="_blank" rel="noopener">Scholar</a><span class="cites">Cited by 4</span></p>
-          </div>
+          <p class="pub-chips"><span class="chip">ACM TQC 2026</span></p>
+          <h3 class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3848024" target="_blank" rel="noopener">A Hybrid Quantum-AI Framework for Protein Structure Prediction on NISQ Devices</a></h3>
+          <p class="pub-authors"><b class="author">Yuqi Zhang</b>, <span class="author">Yuxin Yang</span>, <span class="author">Feixiong Cheng</span>, <span class="author">Cheng-Chang Lu</span>, <span class="author">Nima Saeidi</span>, <span class="author">Junhan Zhao</span>, <span class="author">Siwei Chen</span>, <span class="author">Weiwen Jiang</span>, <span class="author">Qiang Guan*</span></p>
+          <p class="pub-venue">ACM Transactions on Quantum Computing</p>
+          <p class="pub-links"><a href="https://dl.acm.org/doi/abs/10.1145/3848024" target="_blank" rel="noopener">ACM DL</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Q7Ybs-gAAAAJ&amp;citation_for_view=Q7Ybs-gAAAAJ:3fE2CSJIrl8C" target="_blank" rel="noopener">Scholar</a><span class="cites">Cited by 5</span></p>
         </article>
         <article class="pub" id="paper-pre1">
-          <a class="pub-thumb" href="https://arxiv.org/abs/2603.06963" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/papers/pre1.jpg" alt="" loading="lazy" width="960" height="720">
-          </a>
-          <div class="pub-body">
-            <span class="venue-tag">arXiv</span>
-            <h3 class="pub-title"><a href="https://arxiv.org/abs/2603.06963" target="_blank" rel="noopener">Qronecker: A Certifiable Kronecker Compression Primitive for Quantum-Chemistry Hamiltonians</a></h3>
-            <p class="pub-venue"><span class="venue">arXiv preprint, 2026</span></p>
-            <p class="pub-links"><a href="https://arxiv.org/abs/2603.06963" target="_blank" rel="noopener">arXiv</a></p>
-          </div>
+          <p class="pub-chips"><span class="chip">arXiv 2026</span></p>
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2603.06963" target="_blank" rel="noopener">Qronecker: A Certifiable Kronecker Compression Primitive for Quantum-Chemistry Hamiltonians</a></h3>
+          <p class="pub-venue">arXiv preprint</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2603.06963" target="_blank" rel="noopener">arXiv</a></p>
         </article>
       </div>
     </section>
 
-    <section id="funding">
+    <section id="talks">
       <h2>Funding and Talks</h2>
       <ul class="records">
         <li>
-          <span class="date">2026</span>
+          <span class="date">Nov 2026</span>
+          <div>
+            <p class="record-title">Paper talk, SC '26</p>
+            <p class="record-sub">Quantum Sampling Architecture for Protein Structure Reconstruction on Utility-Scale Hardware</p>
+            <p class="record-meta">The International Conference for High Performance Computing, Networking, Storage, and Analysis · McCormick Place, Chicago, Illinois · November 15–20, 2026</p>
+            <p class="record-links"><a href="https://arxiv.org/abs/2607.06971" target="_blank" rel="noopener">Paper</a><a href="https://sc26.supercomputing.org/" target="_blank" rel="noopener">SC26</a></p>
+          </div>
+        </li>
+        <li id="funding">
+          <span class="date">Sep 2026</span>
           <div>
             <p class="record-title">NSF I-Corps for Quantum+X</p>
             <p class="record-sub">I-Corps: Translation Potential of a Hybrid Quantum-Classical Drug Discovery Platform</p>
-            <dl class="record-facts">
-              <div><dt>Role</dt><dd>Entrepreneurial Lead</dd></div>
-              <div><dt>PI</dt><dd>Dr.&nbsp;Qiang Guan</dd></div>
-              <div><dt>Award</dt><dd>NSF 2630667, US$50,000</dd></div>
-              <div><dt>Period</dt><dd>Sep 2026 to Aug 2027</dd></div>
-            </dl>
+            <p class="record-meta">Entrepreneurial Lead · PI Dr.&nbsp;Qiang Guan · NSF 2630667, US$50,000 · Sep 2026 to Aug 2027</p>
             <p class="record-links"><a href="https://nsf.elsevierpure.com/en/projects/i-corps-translation-potential-of-a-hybrid-quantum-classical-drug-/" target="_blank" rel="noopener">Award details</a><a href="https://www.nsf.gov/funding/initiatives/i-corps/updates/nsf-announces-special-opportunity-i-corpstm-quantumx" target="_blank" rel="noopener">Quantum+X program</a></p>
-          </div>
-        </li>
-        <li id="talks">
-          <span class="date">Nov 2026</span>
-          <div>
-            <p class="record-title">SC '26: The International Conference for High Performance Computing, Networking, Storage, and Analysis</p>
-            <p class="record-place"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.6A5 5 0 0 0 3 6.4C3 10.4 8 15 8 15z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="6.4" r="1.8" fill="currentColor"/></svg>McCormick Place, Chicago, Illinois</p>
-            <dl class="record-facts">
-              <div class="fact-wide"><dt>Paper talk</dt><dd>Quantum Sampling Architecture for Protein Structure Reconstruction on Utility-Scale Hardware</dd></div>
-              <div><dt>Conference</dt><dd>November 15–20, 2026</dd></div>
-            </dl>
-            <p class="record-links"><a href="https://arxiv.org/abs/2607.06971" target="_blank" rel="noopener">Paper</a><a href="https://sc26.supercomputing.org/" target="_blank" rel="noopener">SC26</a></p>
           </div>
         </li>
         <li>
           <span class="date">Nov 2025</span>
           <div>
-            <p class="record-title">SC '25: The International Conference for High Performance Computing, Networking, Storage, and Analysis</p>
-            <p class="record-place"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.6A5 5 0 0 0 3 6.4C3 10.4 8 15 8 15z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="6.4" r="1.8" fill="currentColor"/></svg>America's Center Convention Complex, St. Louis, Missouri</p>
-            <dl class="record-facts">
-              <div class="fact-wide"><dt>Paper talk</dt><dd>QDockBank: A Dataset for Ligand Docking on Protein Fragments Predicted on Utility-Level Quantum Computers</dd></div>
-              <div><dt>Conference</dt><dd>November 16–21, 2025</dd></div>
-            </dl>
+            <p class="record-title">Paper talk, SC '25</p>
+            <p class="record-sub">QDockBank: A Dataset for Ligand Docking on Protein Fragments Predicted on Utility-Level Quantum Computers</p>
+            <p class="record-meta">The International Conference for High Performance Computing, Networking, Storage, and Analysis · America's Center Convention Complex, St. Louis, Missouri · November 16–21, 2025</p>
             <p class="record-links"><a href="https://dl.acm.org/doi/full/10.1145/3712285.3759799" target="_blank" rel="noopener">Paper</a><a href="https://sc25.supercomputing.org/" target="_blank" rel="noopener">SC25</a></p>
           </div>
         </li>
         <li>
           <span class="date">Jul 2025</span>
           <div>
-            <p class="record-title">Quantum Computing User Forum (QCUF) 2025</p>
-            <p class="record-place"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-4.6 5-8.6A5 5 0 0 0 3 6.4C3 10.4 8 15 8 15z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="6.4" r="1.8" fill="currentColor"/></svg>Oak Ridge National Laboratory, Oak Ridge, Tennessee</p>
-            <dl class="record-facts">
-              <div class="fact-wide"><dt>Talk</dt><dd>Protein Structure Prediction in Drug Discovery on Utility-Level Quantum Processors</dd></div>
-              <div><dt>Date</dt><dd>July 23, 2025</dd></div>
-            </dl>
+            <p class="record-title">Talk, Quantum Computing User Forum (QCUF) 2025</p>
+            <p class="record-sub">Protein Structure Prediction in Drug Discovery on Utility-Level Quantum Processors</p>
+            <p class="record-meta">Oak Ridge National Laboratory, Oak Ridge, Tennessee · July 23, 2025</p>
             <p class="record-links"><a href="https://www.olcf.ornl.gov/calendar/2025-quantum-computing-user-forum/" target="_blank" rel="noopener">Event agenda</a></p>
           </div>
         </li>
@@ -335,6 +315,6 @@
       if (year >= 1 && year <= words.length) el.textContent = words[year - 1];
     })();
   </script>
-  <script src="assets/pubs.js?v=305" defer></script>
+  <script src="assets/pubs.js?v=401" defer></script>
 </body>
 </html>

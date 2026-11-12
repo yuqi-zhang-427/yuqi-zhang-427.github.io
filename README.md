@@ -40,8 +40,8 @@ Scholar does **not** expose impact factors, corresponding-author marks, full aut
   ```json
   "John Smith": "John Smith"
   ```
-- **A paper's teaser figure** → set `image` (a file under `assets/img/papers/`) on its `publications` entry.
-- **A paper's venue tag and full venue name** → set `venue_badge` (the short tag above the title, e.g. `"SC '26"`) and `venue_full` (shown under the authors; the year is added automatically).
+- **Figures** → the publication list is text only. The three figure cards under **Research Highlights** and the **Journal Cover** block beside News are written by hand in `index.html`; their images live in `assets/img/papers/`. The per-paper `image` field is kept in the data but not displayed.
+- **A paper's venue tag and full venue name** → set `venue_badge` (the short navy label above the title; the year is added, so `"PNAS"` shows as "PNAS 2026", while a badge that already has a year such as `"SC '26"` is shown as written) and `venue_full` (shown in italics under the authors). A `status` such as `"In Press"` gets its own label.
 - **An accepted paper Scholar doesn't list yet** → add it under `manual_publications` with a placeholder `citation_id` such as `manual:pnas-kras-2026` (reference that ID in `order`) and `"status": "In Press"`. When Scholar adds the paper, it is matched by title, so no duplicate card appears and the order stays put. Two collaborators whose names share a first initial and surname (Sixu Chen and Siwei Chen) must not both be in `author_full_names`; write one as `{ "name": "Sixu Chen" }` in that paper's author list.
 - **A specific paper** (corresponding authors, venue prose, code links, “Under Review”, *et al.*) → add an entry under `publications`, keyed by its **`citation_id`** — the string after `citation_for_view=` in that paper's Scholar link.
 
@@ -49,7 +49,7 @@ Curated titles, authors, years, links, and display fields in `overrides.json` ta
 
 The `order` list sets the chosen venue-priority order for published papers: PNAS, Advanced Science, SC (2026 before 2025), then ACM Transactions on Quantum Computing. Preprints appear after published work. Scholar refreshes keep this curated order.
 
-For a journal Frontispiece, add a `frontispiece` object to the original paper's override with `image`, `url`, `title`, `issue`, `published`, `credit`, `license`, and `license_url`. Set the paper's main `image` to the same cover path to feature the complete portrait artwork as a larger main image, with issue details and attribution beside it. The feature's publication date is separate from the original research article's year. If Scholar lists the Frontispiece separately, set its `citation_id` and full `scholar_title` inside that object so it stays attached to the research paper instead of producing an extra paper card.
+For a journal Frontispiece, add a `frontispiece` object to the original paper's override with `image`, `url`, `title`, `issue`, `published`, `credit`, `license`, and `license_url`. The paper then gets a "Frontispiece" label that links to the **Journal Cover** block beside News, where the full cover is shown with its issue details and the image credit and licence (edit that block in `index.html` when the cover changes). The feature's publication date is separate from the original research article's year. If Scholar lists the Frontispiece separately, set its `citation_id` and full `scholar_title` inside that object so it stays attached to the research paper instead of producing an extra paper card.
 
 **Sync policy** (enforced in `scripts/fetch_scholar.py`, not configurable via overrides):
 
@@ -80,7 +80,7 @@ python3 -m http.server 4321   # then open http://localhost:4321
 |------|---------|
 | `index.html` | The page. `#pub-list` is filled in by JS. |
 | `assets/pubs.js` | Fetches `data/publications.json` and renders the list. |
-| `assets/img/papers/` | One teaser figure per paper, referenced by `image` in `overrides.json`. |
+| `assets/img/papers/` | Paper figures and the journal cover, used by the Research Highlights and Journal Cover blocks in `index.html`. |
 | `assets/img/overview-protein.webp` | Navy-tinted KRAS structure used in the Research overview figure. |
 | `assets/img/og-card.png` | Social preview card (2400×1260) used by Open Graph and X metadata. |
 | `data/publications.json` | Auto-generated publication data — **don't hand-edit**. |
