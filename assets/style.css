@@ -258,56 +258,6 @@ h2 {
   white-space: nowrap;
 }
 
-/* Research highlights: three headline results, each with a large figure */
-.highlights {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-}
-
-.hl-figure {
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  margin-bottom: 14px;
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  background: #fff;
-}
-
-.hl-figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.hl-figure--cover img {
-  object-fit: cover;
-  object-position: top;
-}
-
-.hl-title {
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.hl-title a {
-  color: inherit;
-}
-
-.hl-title a:hover {
-  color: var(--navy);
-}
-
-.hl-text {
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 14.5px;
-  line-height: 1.6;
-}
-
 /* News beside the journal cover */
 .news-row {
   display: grid;
@@ -400,102 +350,19 @@ h2 {
   margin-top: 6px;
 }
 
-/* Research overview: quantum hardware -> physical intelligence layer
-   (algorithm, system, application) -> biology and drug discovery */
+/* Research overview figure, drawn in Figma and exported at 2x; a stacked
+   version replaces it on phones. */
 .statement {
   line-height: 1.75;
 }
 
 .overview {
-  display: grid;
-  grid-template-columns: 1fr 44px 1.1fr 44px 1fr;
-  align-items: start;
   margin: 28px 0 0;
 }
 
-.ov-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.ov-col svg,
-.ov-col img,
-.ov-layer ol {
-  height: 150px;
-}
-
-.ov-hw svg {
-  width: auto;
-}
-
-.chip-lines line {
-  stroke: #aab6cc;
-  stroke-width: 1.5;
-}
-
-.chip-dots circle {
-  fill: #fff;
-  stroke: var(--navy);
-  stroke-width: 1.5;
-}
-
-.ov-bio img {
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-.ov-layer ol {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.overview img {
   width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.ov-layer li {
-  padding: 9px 0;
-  border-top: 1px solid var(--navy-line);
-  color: var(--ink);
-  font-size: 15px;
-}
-
-.ov-layer li:first-child { border-top: 1.5px solid var(--navy); }
-.ov-layer li:last-child { border-bottom: 1.5px solid var(--navy); }
-
-.ov-label {
-  margin-top: 12px;
-  color: var(--ink);
-  font-size: 14.5px;
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-.ov-sub {
-  color: var(--muted);
-  font-size: 12.5px;
-  line-height: 1.4;
-}
-
-.ov-arrow {
-  position: relative;
-  height: 1px;
-  margin: 75px 8px 0;
-  background: var(--navy);
-}
-
-.ov-arrow::after {
-  content: "";
-  position: absolute;
-  top: -4px;
-  right: -1px;
-  border: 4.5px solid transparent;
-  border-right: 0;
-  border-left: 7px solid var(--navy);
+  height: auto;
 }
 
 /* Publications: a text list of venue labels, title, authors, venue, buttons */
@@ -712,8 +579,6 @@ a.chip--soft:hover {
 
   h1 { font-size: 30px; }
 
-  .highlights { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-
   .news li,
   .records li {
     grid-template-columns: minmax(0, 1fr);
@@ -722,23 +587,7 @@ a.chip--soft:hover {
 
   .news li { padding: 6px 0; }
 
-  .overview { grid-template-columns: minmax(0, 1fr); }
-
-  .ov-arrow {
-    width: 1px;
-    height: 22px;
-    margin: 10px auto;
-  }
-
-  .ov-arrow::after {
-    top: auto;
-    right: auto;
-    bottom: -1px;
-    left: -4px;
-    border: 4.5px solid transparent;
-    border-bottom: 0;
-    border-top: 7px solid var(--navy);
-  }
+  .overview { margin-top: 20px; }
 
   .news-row { grid-template-columns: minmax(0, 1fr); gap: 40px; }
 
@@ -748,6 +597,6 @@ a.chip--soft:hover {
 }
 
 @media print {
-  .site-header, .portrait, .highlights, .cover { display: none; }
+  .site-header, .portrait, .cover { display: none; }
   body { font-size: 11pt; }
 }

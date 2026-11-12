@@ -40,7 +40,7 @@ Scholar does **not** expose impact factors, corresponding-author marks, full aut
   ```json
   "John Smith": "John Smith"
   ```
-- **Figures** → the publication list is text only. The three figure cards under **Research Highlights** and the **Journal Cover** block beside News are written by hand in `index.html`; their images live in `assets/img/papers/`. The per-paper `image` field is kept in the data but not displayed.
+- **Figures** → the publication list is text only. The **Journal Cover** block beside News is written by hand in `index.html`; their images live in `assets/img/papers/`. The per-paper `image` field is kept in the data but not displayed.
 - **A paper's venue tag and full venue name** → set `venue_badge` (the short navy label above the title; the year is added, so `"PNAS"` shows as "PNAS 2026", while a badge that already has a year such as `"SC '26"` is shown as written) and `venue_full` (shown in italics under the authors). A `status` such as `"In Press"` gets its own label.
 - **An accepted paper Scholar doesn't list yet** → add it under `manual_publications` with a placeholder `citation_id` such as `manual:pnas-kras-2026` (reference that ID in `order`) and `"status": "In Press"`. When Scholar adds the paper, it is matched by title, so no duplicate card appears and the order stays put. Two collaborators whose names share a first initial and surname (Sixu Chen and Siwei Chen) must not both be in `author_full_names`; write one as `{ "name": "Sixu Chen" }` in that paper's author list.
 - **A specific paper** (corresponding authors, venue prose, code links, “Under Review”, *et al.*) → add an entry under `publications`, keyed by its **`citation_id`** — the string after `citation_for_view=` in that paper's Scholar link.
@@ -80,8 +80,8 @@ python3 -m http.server 4321   # then open http://localhost:4321
 |------|---------|
 | `index.html` | The page. `#pub-list` is filled in by JS. |
 | `assets/pubs.js` | Fetches `data/publications.json` and renders the list. |
-| `assets/img/papers/` | Paper figures and the journal cover, used by the Research Highlights and Journal Cover blocks in `index.html`. |
-| `assets/img/overview-protein.webp` | Navy-tinted KRAS structure used in the Research overview figure. |
+| `assets/img/papers/` | Paper figures and the journal cover, used by the Journal Cover block in `index.html`. |
+| `assets/img/research-overview.webp`, `research-overview-mobile.webp` | Research overview figure (wide, and stacked for phones), drawn in Figma and exported at 2x. `overview-protein.webp` is the KRAS structure used inside it. |
 | `assets/img/og-card.png` | Social preview card (2400×1260) used by Open Graph and X metadata. |
 | `data/publications.json` | Auto-generated publication data — **don't hand-edit**. |
 | `data/overrides.json` | **Your** supplements (IF, corresponding authors, venue text, links). |
