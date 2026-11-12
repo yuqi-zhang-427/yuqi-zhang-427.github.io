@@ -16,7 +16,7 @@ TQC_ID = "Q7Ybs-gAAAAJ:3fE2CSJIrl8C"
 TQC_OLD_ID = "Q7Ybs-gAAAAJ:eQOLeE2rZwMC"
 SCI_ID = "Q7Ybs-gAAAAJ:kNdYIx-mwKoC"
 SCI_OLD_ID = "Q7Ybs-gAAAAJ:LkGwnXOMwfcC"
-EXPECTED_ORDER = ["p2", "p1", "p3", "p4"]
+EXPECTED_ORDER = ["p5", "p2", "p1", "p3", "p4"]
 
 
 class PublicationSyncTests(unittest.TestCase):
@@ -110,12 +110,13 @@ class PublicationSyncTests(unittest.TestCase):
                       title=record["title"].replace("-", "‐"))
         self.articles.extend([record, future])
         pubs, preprints = self.transform()
-        self.assertEqual(len(pubs), 4)
+        self.assertEqual(len(pubs), 5)
         self.assertEqual(len(preprints), 1)
         self.assertEqual(sum(bool(p.get("frontispiece")) for p in pubs), 1)
 
     def test_manual_accepted_paper_replaces_unicode_preprint_title(self):
-        manual = self.overrides["manual_publications"][0]
+        manual = next(p for p in self.overrides["manual_publications"]
+                      if p["paper_id"] == "p1")
         self.articles.append({
             "citation_id": "new-qsad-id",
             "title": manual["title"].replace("Utility-Scale", "Utility–Scale"),
@@ -128,9 +129,40 @@ class PublicationSyncTests(unittest.TestCase):
         self.assertEqual(len(preprints), 1)
         self.assertEqual(preprints[0]["paper_id"], "pre1")
 
+    def test_in_press_pnas_paper_leads_with_full_author_list(self):
+        pubs, _ = self.transform()
+        paper = pubs[0]
+        self.assertEqual(paper["paper_id"], "p5")
+        self.assertEqual(paper["venue_badge"], "PNAS")
+        self.assertEqual(paper["status"], "In Press")
+        names = [a["name"] for a in paper["authors"]]
+        self.assertEqual(len(names), 16)
+        # "Sixu Chen" and "Siwei Chen" share a name key; both must survive.
+        self.assertIn("Sixu Chen", names)
+        self.assertIn("Siwei Chen", names)
+        self.assertEqual([a["name"] for a in paper["authors"] if a.get("corresponding")],
+                         ["Qiang Guan", "Ruth Nussinov", "Feixiong Cheng"])
+        qsad = next(p for p in pubs if p.get("paper_id") == "p1")
+        self.assertIn("Siwei Chen", [a["name"] for a in qsad["authors"]])
+
+    def test_pnas_scholar_record_merges_and_keeps_first_place(self):
+        manual = next(p for p in self.overrides["manual_publications"]
+                      if p["paper_id"] == "p5")
+        self.articles.append({
+            "citation_id": "Q7Ybs-gAAAAJ:future-pnas",
+            "title": manual["title"].replace("Drug-Binding", "Drug–Binding"),
+            "authors": "Y Zhang, Y Qiu, W Martin, Y Yang, S Chen, ...",
+            "publication": "Proceedings of the National Academy of Sciences",
+            "year": "2026",
+        })
+        pubs, _ = self.transform()
+        self.assertEqual(sum(p.get("paper_id") == "p5" for p in pubs), 1)
+        self.assertEqual([p["paper_id"] for p in pubs], EXPECTED_ORDER)
+        self.assertEqual(len(pubs[0]["authors"]), 16)
+
     def test_non_first_author_papers_remain_filtered(self):
         pubs, preprints = self.transform()
-        self.assertEqual(len(pubs), 4)
+        self.assertEqual(len(pubs), 5)
         self.assertEqual(len(preprints), 1)
         self.assertFalse(any("REGRID" in p["title"] for p in pubs + preprints))
 

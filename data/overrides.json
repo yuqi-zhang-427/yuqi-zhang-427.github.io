@@ -3,7 +3,7 @@
     "Supplies the bits Google Scholar can't expose. scripts/fetch_scholar.py matches the current citation_id, citation_aliases (old IDs), or a unique normalized title before merging this file on top.",
     "The curated 'publications' entries are authoritative for titles, authors, venues, years, statuses, and canonical links. Scholar refreshes citation counts without rewriting those fields.",
     "Sync policy — first-author only in both sections. Published journal/conference → full-detail Publications cards. arXiv preprints + under-review → compact Preprints rows (title · venue · year, no authors/citations).",
-    "Use 'manual_publications' for accepted papers whose conference metadata has not reached Scholar yet; matching by title prevents a duplicate when Scholar catches up.",
+    "Use 'manual_publications' for accepted papers whose metadata has not reached Scholar yet; matching by title prevents a duplicate when Scholar catches up. A paper with no Scholar record yet takes a stable placeholder citation_id such as 'manual:pnas-kras-2026', which 'order' can reference.",
     "Preprints don't need overrides in most cases; per-paper 'venue_short' and 'links' still work if you want to customize a row.",
     "Corresponding authors are per-paper only. If a paper's entry doesn't list 'corresponding', no author is marked (no global default anymore).",
     "By design we don't carry impact factors, page numbers, or long conference titles — the Publications layout shows venue + year + citations, all auto-tracked from Scholar.",
@@ -29,10 +29,13 @@
     "Junhan Zhao": "Junhan Zhao",
     "William Martin": "William Martin",
     "Kingsten Lin": "Kingsten Lin",
-    "Zixu Wang": "Zixu Wang"
+    "Zixu Wang": "Zixu Wang",
+    "Yunguang Qiu": "Yunguang Qiu",
+    "Junzhou Huang": "Junzhou Huang"
   },
 
   "order": [
+    "manual:pnas-kras-2026",
     "Q7Ybs-gAAAAJ:kNdYIx-mwKoC",
     "Q7Ybs-gAAAAJ:5nxA0vEk-isC",
     "Q7Ybs-gAAAAJ:Tyk-4Ss8FVUC",
@@ -40,6 +43,39 @@
   ],
 
   "manual_publications": [
+    {
+      "citation_id": "manual:pnas-kras-2026",
+      "paper_id": "p5",
+      "venue_badge": "PNAS",
+      "venue_full": "Proceedings of the National Academy of Sciences (PNAS)",
+      "work_types": ["algorithm", "application"],
+      "title": "Quantum-Guided Ensemble Generation for Accurate Drug-Binding Pocket Prediction: Application to KRAS",
+      "authors": [
+        "Yuqi Zhang",
+        "Yunguang Qiu",
+        "William Martin",
+        "Yuxin Yang",
+        { "name": "Sixu Chen" },
+        "Bo Fang",
+        "Jieyang Chen",
+        "Zixu Wang",
+        "Sherry Fang",
+        "Siwei Chen",
+        "Junhan Zhao",
+        "Junzhou Huang",
+        "Joseph Loscalzo",
+        "Qiang Guan",
+        "Ruth Nussinov",
+        "Feixiong Cheng"
+      ],
+      "corresponding": ["Qiang Guan", "Ruth Nussinov", "Feixiong Cheng"],
+      "venue_tag": "Journal",
+      "venue_short": "PNAS",
+      "venue_type": "journal",
+      "year": 2026,
+      "status": "In Press",
+      "links": []
+    },
     {
       "citation_id": "Q7Ybs-gAAAAJ:5nxA0vEk-isC",
       "paper_id": "p1",
