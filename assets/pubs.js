@@ -48,7 +48,7 @@
     return authors;
   }
 
-  /* Short venue and year for the first label, e.g. "PNAS 2026"; badges
+  /* Short venue and year for the first label, e.g. "ACM TQC 2026"; badges
      that already carry a year, like "SC '26", are used as they are. */
   function venueLabel(entry, item) {
     var badge = entry.venue_badge || item.venue || '';
